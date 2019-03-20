@@ -7,13 +7,12 @@ from data import ActionDataset
 from tensorboardX import SummaryWriter
 
 if __name__ == '__main__':
-    batch_size = 8
+    batch_size = 10
     dataset = ActionDataset()
     data_loader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle=True)
-
     net = ActionLSTM()
     criterion = nn.MSELoss()
-    optimizer = torch.optim.SGD(net.parameters(), lr=0.01)
+    optimizer = torch.optim.Adam(net.parameters(), lr=0.0001)
 
     writer = SummaryWriter('./log')
 

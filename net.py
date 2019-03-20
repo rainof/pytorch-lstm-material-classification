@@ -5,10 +5,11 @@ import torch.nn as nn
 class ActionLSTM(nn.Module):
     def __init__(self):
         super().__init__()
-        self.lstm = nn.LSTM(24, 512, 1)
-        self.fc1 = nn.Linear(512, 1024)
-        self.sigmoid = nn.Sigmoid()
-        self.fc2 = nn.Linear(1024, 3)
+        self.lstm = nn.LSTM(1, 100, 1) # LSTM(input_size, hidden_layer, LSTM_layers)
+        # self.lstm = nn.LSTM(24, 512, 1)
+        self.fc1 = nn.Linear(100, 100)
+        self.sigmoid = nn.Softsign()
+        self.fc2 = nn.Linear(100, 3)
         self.dropout = nn.Dropout(p=0.2)
         self.softmax = nn.Softmax(dim=-1)
 

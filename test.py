@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
         raw_pred = np.argmax(out.detach().numpy(), -1)[0]
 
-        action_names = ['sitting', 'standing', 'walking']
+        action_names = ['Yellow cloth', 'Plastic', 'Paper']
         pred_action = action_names[raw_pred]
         gt_action = action_names[sample['raw_label'][0]]
 
